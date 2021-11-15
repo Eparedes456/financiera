@@ -487,14 +487,16 @@ void mostrarAlerta(){
   generarToken() async{
 
     
-    final String url_global = "http://insideinnova.tk/Envio_json";
+    final String url_global = "http://coopacproapp.tk/envio_json";
     
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    
-    final url = '$url_global/token';
+    var url =Uri.parse(url_global);
+   
 
     final resp = await http.post(url,body:{
-      "codfinan"  : "28",
+      "username"    : "user",
+      "password"    : "user",
+      "grant_type"  : "password",
     }
     );
 
@@ -586,7 +588,7 @@ Future<bool> _onBackPressed(){
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
+        //resizeToAvoidBottomPadding: false,
         
         body:Container(
           width: double.infinity,
